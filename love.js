@@ -10,18 +10,22 @@ var btn = document.querySelector('.btn');
                         </svg>`
                     
         
-        for(i=1; i<30; i++) {
+        for(i=1; i<50; i++) {
+          // for each loop, creat a love shape
             let love = document.createElement('SPAN');
             love.className = 'spn';
             love.innerHTML = loveBubble;
+             // append to parentContaner
             loveSprayer.appendChild(love);
           
           setTimeout( ()=> {
-            love.classList.toggle('show');
+            // a delay of i*20m/s is made to add this styles for each love shape created in the loop
+            love.classList.add('show');
             love.style.cssText = `transform: 
              translate(${Math.floor(Math.random() * 301) - 150}%, -${Math.floor(Math.random() * 2000)}%);`
+             // a delay of 1000m/s is made to remove each love shape created in the loop 
              setTimeout( ()=> {loveSprayer.removeChild(love)}, 1000);
-          } , 50*(i))
+          } , 20*(i))
 
         }
     }
