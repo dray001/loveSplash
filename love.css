@@ -20,21 +20,24 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transition: transform 1s ease-out;
+    transition: transform 2s ease-out;
     margin-right: -50%;
     transform: translate(-50%, -50%); 
+    /* opacity: 0.5; */
   }
   
   .spn svg {
     opacity: 0;
   }
   
-  .show svg {
-    fill: red;
-    animation: sweet 1s;
+  .love-svg {
+    z-index: 1;
+    animation: sweet 2s;
+    /* fill: red; */
   }
   
   @keyframes sweet {
     0%   { opacity: 1; }
+    50%   { opacity: 0.5; }
     100% { opacity: 0; }
   }
