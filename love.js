@@ -26,22 +26,24 @@ const btn = document.querySelector('.btn');
              // append to parentContaner
             loveSprayer.appendChild(love);
           
-            loveInfo = () => {
-             
-              // a delay of i*20m/s is made to add this styles for each love shape created in the loop
-              love.classList.add('show');
-              love.style.cssText = `
-              transform: translate(${Math.floor(Math.random() * 301) - 150}%, -${Math.floor(Math.random() * 1500)}%) scale(${Math.random()});
-              
-              `
-               // a delay of 1000m/s is made to remove each love shape created in the loop 
-               setTimeout( ()=> {loveSprayer.removeChild(love)}, 2000);
-            };
-          
-          setTimeout(loveInfo, 20*(i*2));
+            setTimeout(() => {
+              loveInfo(love, loveSprayer);
+            }, 20 * (i * 2));
           
         }
     }
+
+    loveInfo = (love, loveSprayer) => {
+             
+      // a delay of i*20m/s is made to add this styles for each love shape created in the loop
+      love.classList.add('show');
+      love.style.cssText = `
+      transform: translate(${Math.floor(Math.random() * 301) - 150}%, -${Math.floor(Math.random() * 1500)}%) scale(${Math.random()});
+      
+      `
+       // a delay of 1000m/s is made to remove each love shape created in the loop 
+       setTimeout( ()=> {loveSprayer.removeChild(love)}, 2000);
+    };
 
     run();
 
