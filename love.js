@@ -1,7 +1,7 @@
 const loveSprayer = document.querySelector('.loveSprayer');
-const loveImg = document.querySelectorAll('.loveImg');
-const btn = document.querySelector('.btn');
-const clck = document.querySelector('#click');
+const header = document.querySelector('.text');
+
+header.classList.add('activeText');
 
 run = () => {
   const color = ["blue", "yellow", "brown", "green"];
@@ -43,23 +43,62 @@ loveInfo = (love, loveSprayer) => {
     setTimeout( ()=> {loveSprayer.removeChild(love)}, 2000);
 };
 
-let count = 0;
-
-active = () => {
-    loveImg[count].classList.add('active');
-    console.log(count);
-    count++;
-    if(count === 4) {
-      count = 0;
-      for (let img of loveImg) {
-        img.classList.add('active');
-      }
-    }
-    run();
-}
-
 run();
 
 loveSprayer.addEventListener('click', run);
-clck.addEventListener('click', active);
+
+presentation = () => {
+  const loveImg = document.querySelectorAll('.loveImg');
+  const next = document.querySelector('#next');
+  const previous = document.querySelector('#previous');
+
+  let currentStep = 0;
+  loveImg[0].classList.add("active");
+
+  nextAction = () => {
+    active('next');
+    for(img of loveImg) {
+      if(img.classList.contains('active')) {
+        if(img.children[0].alt === 'posner') header.innerText = 'Posner';
+        else if(img.children[0].alt === 'albert') header.innerText = 'Albert'; ;
+      }
+    }
+  }
+
+  previousAction = () => {
+    active('previous');
+  }
+
+  active = (direction) => {
+    loveImg[currentStep].classList.remove('active');
+  
+    if(direction == "next") {
+      if(currentStep < loveImg.length - 1)
+        currentStep++;
+      else{
+        currentStep = 0;
+      }
+    }
+  
+    else if(direction == "previous") {
+      if(currentStep > 0)
+        currentStep--;
+      else{
+        currentStep = loveImg.length - 1;
+      }
+    }
+  
+    showCurrent(currentStep);
+    run();
+  }
+  
+  const showCurrent = (i) => {
+    loveImg[i].classList.add("active");
+  };
+
+next.addEventListener('click', nextAction);
+previous.addEventListener('click', previousAction);
+
+};
+presentation();
     

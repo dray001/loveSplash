@@ -34,7 +34,7 @@
     position: absolute;
     bottom: 20px;
     left: 20px;
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .loveSprayer {
@@ -57,7 +57,7 @@
   }
 
   .imgWrapper {
-    width: 290px;
+    width: 100%;
     overflow: hidden;
     position: relative;
     height: 260px;
@@ -65,14 +65,23 @@
     border-radius: 10px;
   }
 
+  .loveImg img {
+    width: 100%;
+  }
+
   .loveImg {
     z-index: 0;
+    width: 100%;
     position: absolute;
   }
 
   .loveImg.active {
     z-index: 1;
-    animation: sweetFan 0.5s ease-out;
+    animation: sweetFan 0.2s ease-out;
+  }
+
+  .activeText {
+    animation: sweetFan 0.2s ease-out;
   }
 
   @keyframes sweetFan {
