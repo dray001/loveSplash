@@ -1,20 +1,34 @@
 const loveSprayer = document.querySelector('.loveSprayer');
 
-const mike = {
-  name: 'Mike Posner',
-  skill: 'Hit songs',
-  knownFor: 'I took a pill in Ibiza',
-  quote: `"My smiles don\'t result from good things, they result in good things."`,
-  profession: 'singer',
-};
+const greatPeople = [
+   {
+    name: 'Mike Posner',
+    skill: 'Hit songs',
+    knownFor: 'I took a pill in Ibiza, In the Arms of a stranger',
+    quote: `"My smiles don\'t result from good things, they result in good things."`,
+    profession: 'singer',
+  },
 
-const albert = {
-  name: 'Albert Estien',
-  skill: 'Best work in Physics',
-  knownFor: 'Theory of Relativity',
-  quote: `"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."`,
-  profession: 'Physicist',
-};
+  {
+    name: 'Albert Estien',
+    skill: 'Best work in Physics',
+    knownFor: 'Theory of Relativity',
+    quote: `"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."`,
+    profession: 'Physicist',
+  },
+
+  {
+    name: 'Fela Kuti',
+    skill: 'Hit Songs',
+    knownFor: 'I.T.T. (International Thief Thief), Gentle man',
+    quote: `"The music of Africa is big sound: it’s the sound of a community."`,
+    profession: 'Singer and Activist',
+  },
+]
+
+const mike = greatPeople[0];
+const albert = greatPeople[1];
+const fela = greatPeople[2];
 
 user = (personObject) => {
   const skill = document.querySelector('#skill');
@@ -43,6 +57,7 @@ presentation = () => {
       if(img.classList.contains('active')) {
         if(img.children[0].alt === 'posner') user(mike);
         else if(img.children[0].alt === 'albert') user(albert);
+        else if(img.children[0].alt === 'fela') user(fela);
       }
     }
   }
@@ -53,6 +68,7 @@ presentation = () => {
       if(img.classList.contains('active')) {
         if(img.children[0].alt === 'posner') user(mike);
         else if(img.children[0].alt === 'albert') user(albert);
+        else if(img.children[0].alt === 'fela') user(fela);
       }
     }
   }

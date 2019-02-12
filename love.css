@@ -165,6 +165,10 @@
     background: #ffffff;
   }
 
+  .circle svg {
+    transform: scale(1.5);
+  }
+
   .circle:active {
     box-shadow: none;
   }
