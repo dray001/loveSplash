@@ -3,8 +3,14 @@
 @media (max-width: 480px)
  {
   body {
-    margin: 15px;
+    margin: 0;
+    height: 100vh;
+    position: relative;
     font-family: "Helvetica Neue";
+  }
+
+  .wrapper {
+    margin: 15px;
   }
 
   header h1 {
@@ -29,7 +35,7 @@
     background: linear-gradient(180deg, rgba(30, 30, 30, 0) 20.11%, #000000 100%);
   }
 
-  .sectionImg-footer .name {
+  .sectionImg-footer #profession{
     color: white;
     position: absolute;
     bottom: 20px;
@@ -84,6 +90,85 @@
     animation: sweetFan 0.2s ease-out;
   }
 
+  .sectionText {
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+  }
+
+  .sectionText .icon {
+    margin-right: 15px;
+  }
+
+  .sectionText p, .sectionText h4 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .sectionText h4 {
+    margin-bottom: 5px;
+  }
+
+  .sectionText p {
+    color: #737373;
+    font-style: normal;
+    line-height: 20px;
+    font-size: 13px;
+  }
+
+  .textR1 {
+    height: 100px;
+  }
+
+  footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+
+  .navig {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navig-floor{
+    width: 100%;
+    height: 20px;
+    background: #FF7676;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .btn {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FF7676;
+    border-radius: 0px 50px 50px 0px;
+  }
+
+  .btn:last-child {
+    border-radius: 50px 0px 0px 50px;
+  }
+
+  .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.11);
+    background: #ffffff;
+  }
+
+  .circle:active {
+    box-shadow: none;
+  }
+
   @keyframes sweetFan {
     0%   { opacity: 0; 
             transform: translateY(20px);
@@ -101,7 +186,6 @@
     transition: transform 2s ease-out;
     margin-right: -50%;
     transform: translate(-50%, -50%); 
-    /* opacity: 0.5; */
   }
   
   .spn svg {
@@ -111,7 +195,6 @@
   .love-svg {
     z-index: 1;
     animation: sweet 2s;
-    /* fill: red; */
   }
   
   @keyframes sweet {

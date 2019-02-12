@@ -1,7 +1,95 @@
 const loveSprayer = document.querySelector('.loveSprayer');
-const header = document.querySelector('.text');
 
-header.classList.add('activeText');
+const mike = {
+  name: 'Mike Posner',
+  skill: 'Hit songs',
+  knownFor: 'I took a pill in Ibiza',
+  quote: `"My smiles don\'t result from good things, they result in good things."`,
+  profession: 'singer',
+};
+
+const albert = {
+  name: 'Albert Estien',
+  skill: 'Best work in Physics',
+  knownFor: 'Theory of Relativity',
+  quote: `"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."`,
+  profession: 'Physicist',
+};
+
+user = (personObject) => {
+  const skill = document.querySelector('#skill');
+  const knownFor = document.querySelector('#knownFor');
+  const quote = document.querySelector('#quote');
+  const name = document.querySelector('#name');
+
+  skill.innerText = personObject.skill;
+  knownFor.innerText = personObject.knownFor;
+  quote.innerText =personObject.quote;
+  name.innerText =personObject.name;
+  profession.innerText =personObject.profession;
+}
+
+presentation = () => {
+  const loveImg = document.querySelectorAll('.loveImg');
+  const next = document.querySelector('#next');
+  const previous = document.querySelector('#previous');
+
+  let currentStep = 0;
+  loveImg[0].classList.add("active");
+
+  nextAction = () => {
+    active('next');
+    for(img of loveImg) {
+      if(img.classList.contains('active')) {
+        if(img.children[0].alt === 'posner') user(mike);
+        else if(img.children[0].alt === 'albert') user(albert);
+      }
+    }
+  }
+
+  previousAction = () => {
+    active('previous');
+    for(img of loveImg) {
+      if(img.classList.contains('active')) {
+        if(img.children[0].alt === 'posner') user(mike);
+        else if(img.children[0].alt === 'albert') user(albert);
+      }
+    }
+  }
+
+  active = (direction) => {
+    loveImg[currentStep].classList.remove('active');
+  
+    if(direction == "next") {
+      if(currentStep < loveImg.length - 1)
+        currentStep++;
+      else{
+        currentStep = 0;
+      }
+    }
+  
+    else if(direction == "previous") {
+      if(currentStep > 0)
+        currentStep--;
+      else{
+        currentStep = loveImg.length - 1;
+      }
+    }
+  
+    showCurrent(currentStep);
+    run();
+  }
+  
+  const showCurrent = (i) => {
+    loveImg[i].classList.add("active");
+  };
+
+next.addEventListener('click', nextAction);
+previous.addEventListener('click', previousAction);
+
+};
+
+presentation();
 
 run = () => {
   const color = ["blue", "yellow", "brown", "green"];
@@ -43,62 +131,8 @@ loveInfo = (love, loveSprayer) => {
     setTimeout( ()=> {loveSprayer.removeChild(love)}, 2000);
 };
 
-run();
-
 loveSprayer.addEventListener('click', run);
 
-presentation = () => {
-  const loveImg = document.querySelectorAll('.loveImg');
-  const next = document.querySelector('#next');
-  const previous = document.querySelector('#previous');
-
-  let currentStep = 0;
-  loveImg[0].classList.add("active");
-
-  nextAction = () => {
-    active('next');
-    for(img of loveImg) {
-      if(img.classList.contains('active')) {
-        if(img.children[0].alt === 'posner') header.innerText = 'Posner';
-        else if(img.children[0].alt === 'albert') header.innerText = 'Albert'; ;
-      }
-    }
-  }
-
-  previousAction = () => {
-    active('previous');
-  }
-
-  active = (direction) => {
-    loveImg[currentStep].classList.remove('active');
-  
-    if(direction == "next") {
-      if(currentStep < loveImg.length - 1)
-        currentStep++;
-      else{
-        currentStep = 0;
-      }
-    }
-  
-    else if(direction == "previous") {
-      if(currentStep > 0)
-        currentStep--;
-      else{
-        currentStep = loveImg.length - 1;
-      }
-    }
-  
-    showCurrent(currentStep);
-    run();
-  }
-  
-  const showCurrent = (i) => {
-    loveImg[i].classList.add("active");
-  };
-
-next.addEventListener('click', nextAction);
-previous.addEventListener('click', previousAction);
-
-};
-presentation();
+run();
+user(mike);
     
