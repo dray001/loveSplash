@@ -66,7 +66,7 @@ presentation = () => {
   const previous = document.querySelectorAll('.previous');
 
   let currentStep = 0;
-  // loveImg[currentStep].classList.add("active");
+  loveImg[currentStep].classList.add("active");
 
   nextAction = () => {
     active('next');
