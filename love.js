@@ -3,14 +3,14 @@ const loveSprayer = document.querySelector('.loveSprayer');
 const greatPeople = [
    {
     name: 'Mike Posner',
-    skill: 'Hit songs',
+    skill: 'Hit Songs',
     knownFor: 'I took a pill in Ibiza, In the Arms of a stranger',
     quote: `"My smiles don\'t result from good things, they result in good things."`,
-    profession: 'singer',
+    profession: 'Singer',
   },
 
   {
-    name: 'Albert Estien',
+    name: 'Albert Eintien',
     skill: 'Best work in Physics',
     knownFor: 'Theory of Relativity',
     quote: `"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."`,
@@ -30,26 +30,43 @@ const mike = greatPeople[0];
 const albert = greatPeople[1];
 const fela = greatPeople[2];
 
+textAnim = () => {
+  const sk1 = document.querySelector('.sk1');
+  const sk2 = document.querySelector('.sk2');
+
+  sk1.style.cssText = `animation: textAnim1 500ms;`
+  setTimeout(()=> {sk1.style.cssText = `animation: none;`}, 600);
+  sk2.style.cssText = `animation: textAnim1 500ms;`
+  setTimeout(()=> {sk2.style.cssText = `animation: none;`}, 600);
+}
+
 user = (personObject) => {
   const skill = document.querySelector('#skill');
   const knownFor = document.querySelector('#knownFor');
   const quote = document.querySelector('#quote');
-  const name = document.querySelector('#name');
+  const name = document.querySelectorAll('.name');
 
   skill.innerText = personObject.skill;
   knownFor.innerText = personObject.knownFor;
   quote.innerText =personObject.quote;
-  name.innerText =personObject.name;
-  profession.innerText =personObject.profession;
+  for (names of name ) { 
+    names.innerText = personObject.name;
+    names.style.cssText = `animation: textAnim 200ms;`
+    setTimeout(()=> {names.style.cssText = `animation: none;`}, 200);
+  }
+
+  textAnim();
+
+  profession.innerText = personObject.profession;
 }
 
 presentation = () => {
   const loveImg = document.querySelectorAll('.loveImg');
-  const next = document.querySelector('#next');
-  const previous = document.querySelector('#previous');
+  const next = document.querySelectorAll('.next');
+  const previous = document.querySelectorAll('.previous');
 
   let currentStep = 0;
-  loveImg[0].classList.add("active");
+  // loveImg[currentStep].classList.add("active");
 
   nextAction = () => {
     active('next');
@@ -58,7 +75,7 @@ presentation = () => {
         if(img.children[0].alt === 'posner') user(mike);
         else if(img.children[0].alt === 'albert') user(albert);
         else if(img.children[0].alt === 'fela') user(fela);
-      }
+      }  
     }
   }
 
@@ -77,31 +94,30 @@ presentation = () => {
     loveImg[currentStep].classList.remove('active');
   
     if(direction == "next") {
-      if(currentStep < loveImg.length - 1)
-        currentStep++;
+      if(currentStep < loveImg.length - 1) currentStep++;
       else{
         currentStep = 0;
       }
     }
   
     else if(direction == "previous") {
-      if(currentStep > 0)
-        currentStep--;
+      if(currentStep > 0) currentStep--;
+      
       else{
         currentStep = loveImg.length - 1;
       }
     }
   
     showCurrent(currentStep);
-    run();
+    // setTimeout(()=>{run()}, 500);
   }
   
-  const showCurrent = (i) => {
-    loveImg[i].classList.add("active");
+  const showCurrent = (position) => {
+    loveImg[position].classList.add("active");
   };
 
-next.addEventListener('click', nextAction);
-previous.addEventListener('click', previousAction);
+  for (nexts of next ) { nexts.addEventListener('click', nextAction); };
+  for (previouss of previous ) { previouss.addEventListener('click', previousAction); };
 
 };
 
@@ -110,13 +126,13 @@ presentation();
 run = () => {
   const color = ["blue", "yellow", "brown", "green"];
     
-  for(i=1; i<=30; i++) {
+  for(i=1; i<=20; i++) {
         // for each loop, creat a love shape
         const love = document.createElement('SPAN');
         love.className = 'spn';
 
         let loveBubble = `
-        <svg width="16" class="love-svg luv" height="13" viewBox="0 0 16 13" fill=${color[Math.floor(Math.random()*3)]}
+        <svg class="love-svg luv" viewBox="0 0 16 13" fill=${color[Math.floor(Math.random()*3)]}
          xmlns="http://www.w3.org/2000/svg">
         <path d="M16 4.62997C16 9.91224 8 12.8201 8 12.8201C8 12.8201 0 9.91224 0 4.62997C0 -1.82008 8 -0.510024 8 2.5C8 -0.510024 16 -1.82009 16 4.62997Z"/>
         </svg>
