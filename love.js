@@ -35,6 +35,7 @@ user = (personObject) => {
   const knownFor = document.querySelector('#knownFor');
   const quote = document.querySelector('#quote');
   const name = document.querySelectorAll('.name');
+  const nameMobile = document.querySelector('header h1');
 
   skill.innerText = personObject.skill;
   knownFor.innerText = personObject.knownFor;
@@ -47,6 +48,9 @@ user = (personObject) => {
     names.style.cssText = `animation: textAnim 200ms;`
     setTimeout(()=> {names.style.cssText = `animation: none;`}, 200);
   }
+
+  nameMobile.style.cssText = `animation: textAnim 200ms;`
+  setTimeout(()=> {nameMobile.style.cssText = `animation: none;`}, 200);
 
   textAnim = () => {
     const sk1 = document.querySelector('.sk1');
