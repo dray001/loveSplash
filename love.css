@@ -6,22 +6,9 @@ body {
   font-family: "Helvetica Neue";
 }
 
-.skill {
-  opacity: 1;
-}
-
 .name {
   margin-top: 0;
   font-size: 70px;
-}
-
-@keyframes textAnim {
-  0%   { 
-          transform: translateY(30px);
-  }
-  100% {
-        transform: translateY(0px);
-        }
 }
 
 header h1  {
@@ -129,12 +116,13 @@ main {
   overflow: hidden;
   position: relative;
   height: 520px;
-  background: #C4C4C4;
+  /* background: #C4C4C4; */
   border-radius: 10px;
 }
 
 .loveImg img {
   width: 100%;
+  border-radius: 10px;
 }
 
 .loveImg {
@@ -224,15 +212,6 @@ footer {
     display: block !important;
     font-size: 24px !important;
     text-align: center;
-  }
-
-  @keyframes textAnim {
-    0%   { 
-            transform: translateY(30px);
-    }
-    100% {
-          transform: translateY(0px);
-          }
   }
 
   .name {
@@ -328,10 +307,10 @@ footer {
 }
 
 @keyframes sweetFan {
-  0%   { opacity: 0; 
+  0%   { 
           transform: translateY(40px);
   }
-  100% { opacity: 1; 
+  100% { 
         transform: translateY(0px);
         }
 }
@@ -342,5 +321,14 @@ footer {
   }
   100% {
         opacity: 1;
+        }
+}
+
+@keyframes textAnim {
+  0%   { 
+          transform: translateY(30px);
+  }
+  100% {
+        transform: translateY(0px);
         }
 }
