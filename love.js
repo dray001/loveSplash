@@ -11,7 +11,7 @@ const greatPeople = [
   },
 
   {
-    name: 'Albert Eintien',
+    name: 'Albert Einstein',
     skill: 'Best work in Physics',
     knownFor: 'Theory of Relativity',
     quote: `"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."`,
@@ -100,8 +100,8 @@ presentation = () => {
   }
   
   const showCurrent = (position) => {
-    loveImg.classList.add('active');
     user(greatPeople[position]);
+    loveImg.classList.add('active');
     setTimeout(()=>{loveImg.classList.remove('active')}, 300);
   };
 
