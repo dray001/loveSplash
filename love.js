@@ -30,6 +30,7 @@ const greatPeople = [
 ]
 const loveImg = document.querySelector('.loveImg');
 
+
 user = (personObject) => {
   const skill = document.querySelector('#skill');
   const knownFor = document.querySelector('#knownFor');
@@ -65,6 +66,8 @@ user = (personObject) => {
   textAnim();
 
 }
+
+user(greatPeople[0]);
 
 presentation = () => {
   const next = document.querySelectorAll('.next');
