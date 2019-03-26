@@ -94,8 +94,8 @@ user = (personObject, cont) => {
       sk2.style.cssText = `animation: none;`
     }
     else {
-      sk1.style.cssText = `animation: textAnim1 500ms;`
-      sk2.style.cssText = `animation: textAnim1 500ms;`
+      sk1.style.cssText = `animation: textAnim1 200ms;`
+      sk2.style.cssText = `animation: textAnim1 200ms;`
       sk1.addEventListener('animationend', removeTransition);
       sk2.addEventListener('animationend', removeTransition);
     }
@@ -163,10 +163,10 @@ presentation();
 
 run = () => {
   const color = ["blue", "yellow", "brown", "green"];
-  console.log(greatPeople[count].increment(), count);
+  greatPeople[count].increment();
   user(greatPeople[count], true);
     
-  for(i=1; i<=20; i++) { 
+  for(i=1; i<=10; i++) { 
         // for each loop, creat a love shape
         const love = document.createElement('SPAN');
         love.className = 'spn';
@@ -195,12 +195,11 @@ run = () => {
 loveInfo = (love, loveSprayer) => {
           
   // a delay of i*20m/s is made to add this styles for each love shape created in the loop
-  love.classList.add('show');
   love.style.cssText = `
   transform: translate(${Math.floor(Math.random() * 301) - 150}%, -${Math.floor(Math.random() * 1500)}%) scale(${Math.random()});
   `
     // a delay of 1000m/s is made to remove each love shape created in the loop 
-    setTimeout( ()=> {loveSprayer.removeChild(love)}, 2000);
+    setTimeout( ()=> {loveSprayer.removeChild(love)}, 500);
 };
 
 loveSprayer.addEventListener('click', run);
