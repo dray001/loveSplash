@@ -158,6 +158,13 @@ main {
   font-size: 25px;
 }
 
+.count {
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  transform: translate(-50px, 20px)
+}
+
 .activeText {
   animation: sweetFan 0.2s ease-out;
 }
@@ -242,7 +249,15 @@ footer {
   }
 
   .sectionImg-footer #profession {
-    font-size: 13px;
+    font-size: 18px;
+    bottom: 15px;
+  }
+
+  .count {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    transform: translate(-30px, 8px)
   }
 
   .sectionText p, .sectionText h4 {
@@ -317,10 +332,12 @@ footer {
 
 @keyframes textAnim1 {
   0%   { 
-          opacity: 0;
+    opacity: 0;
+    transform: translateY(10px);
   }
   100% {
-        opacity: 1;
+    opacity: 1;
+    transform: translateY(0px);
         }
 }
 

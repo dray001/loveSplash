@@ -1,4 +1,6 @@
 const loveSprayer = document.querySelector('.loveSprayer');
+const loveImg = document.querySelector('.loveImg');
+let count = 0;
 
 const greatPeople = [
    {
@@ -8,6 +10,9 @@ const greatPeople = [
     quote: `"My smiles don\'t result from good things, they result in good things."`,
     profession: 'Singer',
     source: 'img/posner.png',
+    like: 0,
+    increment: function() {
+      return this.like++;}
   },
 
   {
@@ -17,6 +22,10 @@ const greatPeople = [
     quote: `"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."`,
     profession: 'Physicist',
     source: 'img/albert.png',
+    like: 0,
+    increment: function() {
+      return this.like++;}
+    
   },
 
   {
@@ -26,47 +35,76 @@ const greatPeople = [
     quote: `"The music of Africa is big sound: it’s the sound of a community."`,
     profession: 'Singer and Activist',
     source: 'img/fela.png',
+    like: 0,
+    increment: function() {
+      return this.like++;}
   },
 ]
-const loveImg = document.querySelector('.loveImg');
 
 
-user = (personObject) => {
+user = (personObject, cont) => {
   const skill = document.querySelector('#skill');
   const knownFor = document.querySelector('#knownFor');
   const quote = document.querySelector('#quote');
   const name = document.querySelectorAll('.name');
   const nameMobile = document.querySelector('header h1');
+  const likes = document.querySelector('.count');
 
   skill.innerText = personObject.skill;
+  likes.innerText = personObject.like;
   knownFor.innerText = personObject.knownFor;
   quote.innerText =personObject.quote;
   loveImg.children[0].src = personObject.source;
   profession.innerText = personObject.profession;
 
-  for (names of name ) { 
-    names.innerText = personObject.name;
-    names.style.cssText = `animation: textAnim 200ms;`
-    setTimeout(()=> {names.style.cssText = `animation: none;`}, 200);
+  removeTransition = () => {
+    names.style.cssText = `animation: none;`
+    nameMobile.style.cssText = `animation: none;`
+    // console.log('we');
   }
 
-  nameMobile.style.cssText = `animation: textAnim 200ms;`
-  setTimeout(()=> {nameMobile.style.cssText = `animation: none;`}, 200);
+  for (names of name ) { 
+    names.innerText = personObject.name;
+    if(cont) {names.style.cssText = `animation: none;`}
+    
+    else {names.style.cssText = `animation: textAnim 200ms;`
+    names.addEventListener('animationend', removeTransition);
+    }
+  }
+    
+
+  if(cont) {nameMobile.style.cssText = `animation: none;`}
+  else {nameMobile.style.cssText = `animation: textAnim 200ms;`
+  nameMobile.addEventListener('animationend', removeTransition);
+  // setTimeout(()=> {nameMobile.style.cssText = `animation: none;`}, 200);
+  }
 
   textAnim = () => {
     const sk1 = document.querySelector('.sk1');
     const sk2 = document.querySelector('.sk2');
+
+    removeTransition = () => {
+      sk1.style.cssText = `animation: none;`
+      sk2.style.cssText = `animation: none;`
+      // console.log('we');
+    }
   
-    sk1.style.cssText = `animation: textAnim1 500ms;`
-    setTimeout(()=> {sk1.style.cssText = `animation: none;`}, 600);
-    sk2.style.cssText = `animation: textAnim1 500ms;`
-    setTimeout(()=> {sk2.style.cssText = `animation: none;`}, 600);
+    if(cont) {
+      sk1.style.cssText = `animation: none;`
+      sk2.style.cssText = `animation: none;`
+    }
+    else {
+      sk1.style.cssText = `animation: textAnim1 500ms;`
+      sk2.style.cssText = `animation: textAnim1 500ms;`
+      sk1.addEventListener('animationend', removeTransition);
+      sk2.addEventListener('animationend', removeTransition);
+    }
+    
   }
 
   textAnim();
 
 }
-
 user(greatPeople[0]);
 
 presentation = () => {
@@ -100,12 +138,18 @@ presentation = () => {
     }
   
     showCurrent(currentStep);
+    count = currentStep;
+  }
+
+  removeTransition = () => {
+    loveImg.classList.remove('active');
+    console.log('we');
   }
   
   const showCurrent = (position) => {
-    user(greatPeople[position]);
     loveImg.classList.add('active');
-    setTimeout(()=>{loveImg.classList.remove('active')}, 300);
+    loveImg.addEventListener('animationend', removeTransition);
+    user(greatPeople[position]);
   };
 
   // next.addEventListener('click', nextAction);
@@ -119,8 +163,10 @@ presentation();
 
 run = () => {
   const color = ["blue", "yellow", "brown", "green"];
+  console.log(greatPeople[count].increment(), count);
+  user(greatPeople[count], true);
     
-  for(i=1; i<=20; i++) {
+  for(i=1; i<=20; i++) { 
         // for each loop, creat a love shape
         const love = document.createElement('SPAN');
         love.className = 'spn';
@@ -158,5 +204,3 @@ loveInfo = (love, loveSprayer) => {
 };
 
 loveSprayer.addEventListener('click', run);
-
-run();
