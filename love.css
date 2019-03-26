@@ -132,7 +132,7 @@ main {
   opacity: 1;
 }
 
-.loveImg {
+.loveImg.active {
   z-index: 2;
   opacity: 1;
   animation: sweetFan 0.3s ease-out; 
@@ -257,7 +257,7 @@ footer {
     color: white;
     font-size: 20px;
     position: absolute;
-    transform: translate(-30px, 8px)
+    transform: translate(-40px, 3px)
   }
 
   .sectionText p, .sectionText h4 {

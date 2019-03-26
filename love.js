@@ -10,7 +10,7 @@ const greatPeople = [
     quote: `"My smiles don\'t result from good things, they result in good things."`,
     profession: 'Singer',
     source: 'https://res.cloudinary.com/dvipmwuzh/image/upload/v1553605566/posner.png',
-    like: 0,
+    like: 20,
     increment: function() {
       return this.like++;}
   },
@@ -22,7 +22,7 @@ const greatPeople = [
     quote: `"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."`,
     profession: 'Physicist',
     source: 'https://res.cloudinary.com/dvipmwuzh/image/upload/v1553605565/albert.png',
-    like: 0,
+    like: 30,
     increment: function() {
       return this.like++;}
     
@@ -35,7 +35,7 @@ const greatPeople = [
     quote: `"The music of Africa is big sound: it’s the sound of a community."`,
     profession: 'Singer and Activist',
     source: 'https://res.cloudinary.com/dvipmwuzh/image/upload/v1553605565/fela.png',
-    like: 0,
+    like: 40,
     increment: function() {
       return this.like++;}
   },
@@ -84,9 +84,8 @@ user = (personObject, cont) => {
     const sk2 = document.querySelector('.sk2');
 
     removeTransition = () => {
-      sk1.style.cssText = `animation: none;`
-      sk2.style.cssText = `animation: none;`
-      // console.log('we');
+      sk1.style.cssText = `animation: none;`;
+      sk2.style.cssText = `animation: none;`;
     }
   
     if(cont) {
@@ -143,7 +142,6 @@ presentation = () => {
 
   removeTransition = () => {
     loveImg.classList.remove('active');
-    console.log('we');
   }
   
   const showCurrent = (position) => {
@@ -151,9 +149,6 @@ presentation = () => {
     loveImg.addEventListener('animationend', removeTransition);
     user(greatPeople[position]);
   };
-
-  // next.addEventListener('click', nextAction);
-  // previous.addEventListener('click', previousAction);
 
   for (nexts of next ) { nexts.addEventListener('click', nextAction); };
   for (previouss of previous ) { previouss.addEventListener('click', previousAction); };
