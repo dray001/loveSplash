@@ -9,7 +9,7 @@ const greatPeople = [
     knownFor: 'I took a pill in Ibiza, In the Arms of a stranger',
     quote: `"My smiles don\'t result from good things, they result in good things."`,
     profession: 'Singer',
-    source: 'img/posner.png',
+    source: 'https://res.cloudinary.com/dvipmwuzh/image/upload/v1553605566/posner.png',
     like: 0,
     increment: function() {
       return this.like++;}
@@ -21,7 +21,7 @@ const greatPeople = [
     knownFor: 'Theory of Relativity',
     quote: `"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."`,
     profession: 'Physicist',
-    source: 'img/albert.png',
+    source: 'https://res.cloudinary.com/dvipmwuzh/image/upload/v1553605565/albert.png',
     like: 0,
     increment: function() {
       return this.like++;}
@@ -34,7 +34,7 @@ const greatPeople = [
     knownFor: 'I.T.T. (International Thief Thief), Gentle man',
     quote: `"The music of Africa is big sound: it’s the sound of a community."`,
     profession: 'Singer and Activist',
-    source: 'img/fela.png',
+    source: 'https://res.cloudinary.com/dvipmwuzh/image/upload/v1553605565/fela.png',
     like: 0,
     increment: function() {
       return this.like++;}
