@@ -123,6 +123,7 @@ main {
 .loveImg img {
   width: 100%;
   border-radius: 10px;
+  user-select: none;
 }
 
 .loveImg {
@@ -156,13 +157,19 @@ main {
   bottom: 20px;
   left: 20px;
   font-size: 25px;
+  user-select: none;
 }
 
 .count {
   color: white;
+  display: block;
   font-size: 30px;
   position: absolute;
-  transform: translate(-50px, 20px)
+  transform: translate(-100px, 20px);
+  text-align: right;
+  /* background: #737373; */
+  width: 80px;
+  user-select: none;
 }
 
 .activeText {
@@ -257,7 +264,7 @@ footer {
     color: white;
     font-size: 20px;
     position: absolute;
-    transform: translate(-40px, 3px)
+    transform: translate(-90px, 3px)
   }
 
   .sectionText p, .sectionText h4 {
